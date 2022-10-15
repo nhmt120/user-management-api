@@ -1,0 +1,221 @@
+2022/10/04 11:50:56 =============================================
+2022/10/04 11:50:56 postgres
+2022/10/04 11:50:57 Init successful: Database Connection.
+2022/10/04 11:52:52 =============================================
+2022/10/04 11:52:52 Init successful: Database Connection.
+2022/10/04 11:54:06 EOF
+2022/10/04 11:55:02 =============================================
+2022/10/04 11:55:03 Init successful: Database Connection.
+2022/10/04 11:55:22 EOF
+2022/10/04 11:55:22 Gin failed: JSON binding.
+2022/10/04 11:56:26 EOF
+2022/10/04 11:56:26 Gin failed: JSON binding.
+2022/10/04 11:56:36 =============================================
+2022/10/04 11:56:36 Init successful: Database Connection.
+2022/10/04 12:29:30 Gin failed:  EOF
+2022/10/04 12:31:27 Gin failed:  EOF
+2022/10/04 12:33:22 =============================================
+2022/10/04 12:33:22 Init successful: Database Connection.
+2022/10/04 12:33:29 Gin failed:  EOF
+2022/10/04 12:33:58 =============================================
+2022/10/04 12:33:59 Init successful: Database Connection.
+2022/10/04 12:34:06 Gin failed:  EOF
+2022/10/04 12:36:37 Gin failed:  EOF
+2022/10/04 12:36:50 =============================================
+2022/10/04 12:36:50 Init successful: Database Connection.
+2022/10/04 12:37:09 Gin failed:  EOF
+2022/10/04 12:37:25 Gin failed:  EOF
+2022/10/04 12:39:29 =============================================
+2022/10/04 12:39:29 Init successful: Database Connection.
+2022/10/04 12:39:30 Gin failed:  EOF
+2022/10/04 12:40:29 =============================================
+2022/10/04 12:40:29 Init successful: Database Connection.
+2022/10/04 12:40:40 Gin failed:  EOF
+2022/10/04 12:41:57 =============================================
+2022/10/04 12:41:57 Init successful: Database Connection.
+2022/10/04 12:42:01 Gin failed:  EOF
+2022/10/04 12:43:22 Action success: Register
+2022/10/11 12:59:51 =============================================
+2022/10/11 12:59:51 Init successful: Database Connection.
+2022/10/11 13:00:11 =============================================
+2022/10/11 13:00:11 Init successful: Database Connection.
+2022/10/11 13:01:13 ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+2022/10/11 13:01:13 Action failed: Register User
+2022/10/11 13:01:35 Action success: Register User
+2022/10/11 13:03:11 Action success: Update User
+2022/10/11 13:03:18 Action success: Update User
+2022/10/11 13:05:34 Action success: Update User
+2022/10/11 13:06:00 Action success: Update User
+2022/10/12 02:45:24 =============================================
+2022/10/12 02:45:24 Init successful: Database Connection.
+2022/10/12 02:54:32 =============================================
+2022/10/12 02:54:33 Init successful: Database Connection.
+2022/10/12 03:01:32 =============================================
+2022/10/12 03:01:32 Init successful: Database Connection.
+2022/10/12 03:03:14 =============================================
+2022/10/12 03:03:14 Init successful: Database Connection.
+2022/10/12 03:03:35 =============================================
+2022/10/12 03:03:35 Init successful: Database Connection.
+2022/10/12 03:04:20 Action success: Delete User
+2022/10/12 03:12:09 =============================================
+2022/10/12 03:12:09 Init successful: Database Connection.
+2022/10/12 03:14:11 =============================================
+2022/10/12 03:14:12 Init successful: Database Connection.
+2022/10/12 03:14:21 Action success: Get all User
+2022/10/12 03:22:51 =============================================
+2022/10/12 03:22:51 Init successful: Database Connection.
+2022/10/12 03:37:02 =============================================
+2022/10/12 03:37:02 Init successful: Database Connection.
+2022/10/12 03:38:30 =============================================
+2022/10/12 03:38:30 Init successful: Database Connection.
+2022/10/12 03:38:31 Action failed: Login, missing email or password information.
+2022/10/12 03:39:06 Action failed: Login, missing email or password information.
+2022/10/12 03:40:11 Action failed: Login, missing email or password information.
+2022/10/12 03:45:45 =============================================
+2022/10/12 03:45:45 Init successful: Database Connection.
+2022/10/12 03:45:52 Action failed: Login, missing email or password information.
+2022/10/12 03:46:10 Action failed: Login, missing email or password information.
+2022/10/12 03:47:28 =============================================
+2022/10/12 03:47:28 Init successful: Database Connection.
+2022/10/12 03:47:32 Action failed: Login, missing email or password information.
+2022/10/12 03:48:06 =============================================
+2022/10/12 03:48:06 Init successful: Database Connection.
+2022/10/12 03:48:10 Action failed: Login, missing email or password information.
+2022/10/12 03:50:56 =============================================
+2022/10/12 03:50:56 Init successful: Database Connection.
+2022/10/12 03:50:57 Action failed: Login, invalid email.
+2022/10/12 03:51:42 =============================================
+2022/10/12 03:51:42 Init successful: Database Connection.
+2022/10/12 03:51:46 ERROR: column "vince" does not exist (SQLSTATE 42703)
+2022/10/12 03:51:46 Action failed: Login, invalid email.
+2022/10/12 03:54:08 ERROR: column "vince" does not exist (SQLSTATE 42703)
+2022/10/12 03:54:08 Action failed: Login, invalid email.
+2022/10/12 03:55:30 =============================================
+2022/10/12 03:55:30 Init successful: Database Connection.
+2022/10/12 03:55:31 Action failed: Login, invalid password
+2022/10/12 04:03:16 =============================================
+2022/10/12 04:03:16 Init successful: Database Connection.
+2022/10/12 04:03:46 Action success: Register User.
+2022/10/12 04:04:03 Action success: Login.
+2022/10/14 12:57:22 =============================================
+2022/10/14 12:57:22 Init successful: Database Connection.
+2022/10/14 12:57:46 Action success: Login.
+2022/10/14 12:57:46 key is of invalid type
+2022/10/14 12:57:46 Utils failed: Generate JWT token.
+2022/10/14 12:58:30 Action success: Login.
+2022/10/14 12:58:30 key is of invalid type
+2022/10/14 12:58:30 Utils failed: Generate JWT token.
+2022/10/14 13:18:04 =============================================
+2022/10/14 13:18:04 Init successful: Database Connection.
+2022/10/14 13:18:11 Action success: Login.
+2022/10/14 14:52:37 =============================================
+2022/10/14 14:52:37 Init successful: Database Connection.
+2022/10/14 14:52:52 Action success: Get all user.
+2022/10/14 14:53:04 Action success: Login.
+2022/10/14 14:54:00 Action success: Delete user.
+2022/10/14 14:54:05 Action success: Get all user.
+2022/10/14 14:57:06 Gin failed:  invalid character '}' looking for beginning of object key string .
+2022/10/14 14:57:13 Gin failed:  invalid character '}' looking for beginning of object key string .
+2022/10/14 14:57:17 Gin failed:  invalid character '}' looking for beginning of object key string .
+2022/10/14 14:58:42 Gin failed:  invalid character '}' looking for beginning of object key string .
+2022/10/14 15:12:19 =============================================
+2022/10/14 15:12:19 Init successful: Database Connection.
+2022/10/14 15:12:25 Action success: Get all user.
+2022/10/14 15:12:32 record not found
+2022/10/14 15:12:32 Action failed: Login, invalid email.
+2022/10/14 15:14:32 Action success: Delete user.
+2022/10/14 15:14:36 Action success: Delete user.
+2022/10/14 15:14:39 Action success: Delete user.
+2022/10/14 15:19:04 =============================================
+2022/10/14 15:19:04 Init successful: Database Connection.
+2022/10/14 15:19:36 Action success: Get all user.
+2022/10/14 15:19:43 Action success: Delete user.
+2022/10/14 15:21:15 record not found
+2022/10/14 15:21:15 Action failed: Login, invalid email.
+2022/10/14 15:21:20 Action success: Get all user.
+2022/10/14 15:27:43 =============================================
+2022/10/14 15:27:43 Init successful: Database Connection.
+2022/10/14 15:34:43 =============================================
+2022/10/14 15:34:43 Init successful: Database Connection.
+2022/10/14 15:34:50 Action success: Get all user.
+2022/10/14 15:44:07 =============================================
+2022/10/14 15:44:07 Init successful: Database Connection.
+2022/10/14 15:44:13 Action success: Get all user.
+2022/10/14 15:46:35 =============================================
+2022/10/14 15:46:35 Init successful: Database Connection.
+2022/10/14 15:46:41 Action success: Get all user.
+2022/10/14 15:46:44 delete log...
+2022/10/14 15:46:44 record not found
+2022/10/14 15:46:44 {0       0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+2022/10/14 15:47:24 =============================================
+2022/10/14 15:47:24 Init successful: Database Connection.
+2022/10/14 15:47:30 delete log...
+2022/10/14 15:47:30 record not found
+2022/10/14 15:47:30 {0       0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+2022/10/14 15:48:12 =============================================
+2022/10/14 15:48:12 Init successful: Database Connection.
+2022/10/14 15:48:16 delete log...
+2022/10/14 15:48:16 record not found
+2022/10/14 15:48:16 {0       0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC}
+2022/10/14 15:49:36 =============================================
+2022/10/14 15:49:36 Init successful: Database Connection.
+2022/10/14 15:49:42 ---delete log...
+2022/10/14 15:49:42 record not found
+2022/10/14 15:49:42 
+2022/10/14 15:50:26 =============================================
+2022/10/14 15:50:26 Init successful: Database Connection.
+2022/10/14 15:50:29 ---delete log...
+2022/10/14 15:50:29 record not found
+2022/10/14 15:50:29 
+2022/10/14 15:50:29 record not found
+2022/10/14 15:51:14 =============================================
+2022/10/14 15:51:14 Init successful: Database Connection.
+2022/10/14 15:51:17 ---delete log...
+2022/10/14 15:51:17 record not found
+2022/10/14 15:51:17 
+2022/10/14 15:51:17 record not found
+2022/10/14 15:53:02 =============================================
+2022/10/14 15:53:02 Init successful: Database Connection.
+2022/10/14 15:53:09 Action success: Get all user.
+2022/10/14 15:53:12 Get user failed.
+2022/10/14 15:53:12 record not found
+2022/10/14 15:53:17 Action success: Delete user.
+2022/10/14 15:53:20 Action success: Get all user.
+2022/10/14 15:53:26 Action success: Register User.
+2022/10/14 15:53:44 Action failed: Login, invalid password
+2022/10/14 15:53:52 Action failed: Login, invalid password
+2022/10/14 15:54:04 Action success: Login.
+2022/10/14 15:54:24 Gin failed:  invalid character '}' looking for beginning of object key string .
+2022/10/14 15:54:27 Action success: Get all user.
+2022/10/14 15:54:37 Gin failed:  invalid character '}' looking for beginning of object key string .
+2022/10/14 15:54:43 Gin failed:  invalid character '}' looking for beginning of object key string .
+2022/10/14 15:57:22 Action success: Login.
+2022/10/14 15:57:35 Action success: Update user.
+2022/10/14 15:57:52 Action success: Update user.
+2022/10/14 15:58:17 Action success: Update user.
+2022/10/14 15:58:23 Action success: Update user.
+2022/10/14 16:00:07 =============================================
+2022/10/14 16:00:07 Init successful: Database Connection.
+2022/10/14 16:00:32 Action success: Update user.
+2022/10/14 16:04:35 =============================================
+2022/10/14 16:04:35 Init successful: Database Connection.
+2022/10/14 16:04:39 Action success: Get all user.
+2022/10/14 16:04:49 Action success: Update user.
+2022/10/14 16:28:51 =============================================
+2022/10/14 16:28:51 Init successful: Database Connection.
+2022/10/14 16:29:00 Action success: Update user.
+2022/10/14 16:29:13 Action success: Update user.
+2022/10/14 16:34:47 =============================================
+2022/10/14 16:34:48 Init successful: Database Connection.
+2022/10/14 16:34:55 Action success: Get all user.
+2022/10/14 16:35:11 record not found
+2022/10/14 16:35:11 Action failed: Login, invalid email.
+2022/10/14 16:35:15 Action success: Get all user.
+2022/10/14 16:35:24 record not found
+2022/10/14 16:35:24 Action failed: Login, invalid email.
+2022/10/14 16:35:34 Action success: Login.
+2022/10/14 16:43:13 =============================================
+2022/10/14 16:43:13 Init successful: Database Connection.
+2022/10/14 16:43:23 Action success: Login.
+2022/10/14 16:43:41 Action success: Update user.
+2022/10/14 16:44:03 Action success: Update user.
