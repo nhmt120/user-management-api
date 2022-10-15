@@ -15,6 +15,7 @@ type UserRepository interface {
 	UpdateUser(models.User) error
 	DeleteUser(int) error
 	DeleteUserByEmail(string) error
+	DeleteAll() error
 	GetUser(int) (models.User, error)
 	GetUserByEmail(string) (models.User, error)
 	GetAllUsers() ([]models.User, error)
@@ -38,6 +39,11 @@ func (r userRepository) DeleteUser(id int) error {
 
 func (r userRepository) DeleteUserByEmail(email string) error {
 	return r.DB.Where("email = ", email).Delete(&models.User{}).Error
+}
+
+func (r userRepository) DeleteAll() error {
+	// db.Exec("DELETE FROM users") // another simple way
+	return r.DB.Where("1=1").Delete(&models.User{}).Error
 }
 
 func (r userRepository) GetUser(id int) (user models.User, err error) {

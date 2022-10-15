@@ -36,7 +36,3 @@ func main() {
 	// userJSON, err := json.Marshal(user)
 	// fmt.Println(string(userJSON))
 }
-
-// func getUsers(context *gin.Context) {
-// 	context.IndentedJSON(http.StatusOK, users)
-// }

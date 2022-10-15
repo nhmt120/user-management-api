@@ -11,24 +11,21 @@ import (
 
 func SetRoutes(db *gorm.DB) {
 	r := gin.Default()
-	// r.GET("/hello", func(c *gin.Context) {
-	// 	c.JSON(200, gin.H{json.Marshal(controllers)
-	// 	})
-	// })
+	userController := controllers.NewUserController(db)
+	authController := controllers.NewAuthController(db)
 
-	controller := controllers.NewUserController(db)
+	r.POST("/register", userController.Register)
+	r.POST("/login", authController.Login)
 
 	authorized := r.Group("/")
-
 	authorized.Use(middlewares.VerifyJWT())
 	{
-		authorized.POST("/update", controller.Update)
+		authorized.POST("/update", userController.Update)
+		authorized.GET("/get-all", userController.GetAll)
+		authorized.GET("/get-by-email", userController.GetByEmail)
+		authorized.DELETE("/:id", userController.Delete)
+		authorized.DELETE("/delete-all", userController.DeleteAll)
 	}
-
-	r.POST("/register", controller.Register)
-	r.POST("/login", controller.Login)
-	r.DELETE("/:id", controller.Delete)
-	r.GET("/get-all", controller.GetAll)
 
 	// r.Run() // listen and serve on 0.0.0.0:8080
 	r.Run(static.GIN_HOST + ":" + static.GIN_PORT)

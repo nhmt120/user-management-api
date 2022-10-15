@@ -4,25 +4,20 @@ import (
 	"UserManagementAPI/models"
 	"UserManagementAPI/repositories"
 	"UserManagementAPI/utils"
-	"encoding/json"
 	"log"
-	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
-// utils.WriteLog("Logs")
-// file, .repo. := os.OpenFile("Logs/db-logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, os.ModePerm)
-// log.SetOutput(file)
-
 type UserController interface {
 	Register(*gin.Context)
-	Login(context *gin.Context)
 	Update(*gin.Context)
 	Delete(*gin.Context)
+	DeleteAll(*gin.Context)
 	GetAll(*gin.Context)
+	GetByEmail(*gin.Context)
 }
 
 type userController struct {
@@ -66,76 +61,6 @@ func (c userController) Register(context *gin.Context) {
 	}
 }
 
-func (c userController) Login(context *gin.Context) {
-	data, _ := context.GetRawData()
-	m := map[string]string{}
-	json.Unmarshal(data, &m)
-
-	// fmt.Println(string(data))
-	email := m["email"]
-	password := m["password"]
-	if email == "" || password == "" {
-		log.Println("Action failed: Login, missing email or password information.")
-		context.JSON(http.StatusBadRequest, gin.H{
-			"code":    -1,
-			"message": "Missing login information.",
-		})
-		return
-	}
-
-	user, err := c.repo.GetUserByEmail(email)
-
-	if err != nil {
-		log.Println(err)
-		log.Println("Action failed: Login, invalid email.")
-		context.JSON(200, gin.H{
-			"code":    -1,
-			"message": "User with email " + email + " does not exist.",
-		})
-		return
-	}
-	if is_valid := utils.ComparePassword(user.Password, password); is_valid {
-		log.Println("Action success: Login.")
-		jwt_token, err := utils.GenerateJWT(user.Email)
-
-		if err != nil {
-			log.Println(err.Error())
-			log.Println("Utils failed: Generate JWT token.")
-		}
-		context.JSON(http.StatusOK, gin.H{
-			"code":    1,
-			"message": "Login successfully.",
-			"token":   jwt_token,
-		})
-		return
-	} else {
-		log.Println("Action failed: Login, invalid password")
-		context.JSON(200, gin.H{
-			"code":    1,
-			"message": "Login failed: Invalid credentials."})
-		return
-	}
-}
-
-func (c userController) GetAll(context *gin.Context) {
-	users, err := c.repo.GetAllUsers()
-
-	if err == nil {
-		log.Println("Action success: Get all user.")
-		context.JSON(200, gin.H{
-			"code":    1,
-			"message": users,
-		})
-	} else {
-		log.Println(err.Error())
-		log.Println("Action failed: Get all user.")
-		context.JSON(200, gin.H{
-			"code":    1,
-			"message": "Get all user failed.",
-		})
-	}
-}
-
 func (c userController) Update(context *gin.Context) {
 	var user models.User
 	err := context.ShouldBindJSON(&user)
@@ -158,6 +83,63 @@ func (c userController) Update(context *gin.Context) {
 		}
 	} else {
 		log.Println("Gin failed: ", err.Error(), ".")
+	}
+}
+
+func (c userController) GetAll(context *gin.Context) {
+	users, err := c.repo.GetAllUsers()
+
+	if err == nil {
+		log.Println("Action success: Get all user.")
+		context.JSON(200, gin.H{
+			"code":    1,
+			"message": users,
+		})
+	} else {
+		log.Println(err.Error())
+		log.Println("Action failed: Get all user.")
+		context.JSON(200, gin.H{
+			"code":    1,
+			"message": "Get all user failed.",
+		})
+	}
+}
+
+func (c userController) GetByEmail(context *gin.Context) {
+	// users, err := c.repo.GetUserByEmail()
+	// context.Request.URL.Query()
+	email := context.Query("email")
+
+	if email == "" {
+		log.Println("Gin failed or empty email input.")
+		context.JSON(200, gin.H{
+			"code":    0,
+			"message": "No email input received.",
+		})
+		return
+	}
+
+	user, err := c.repo.GetUserByEmail(email)
+
+	if err == nil {
+		log.Println("Action success: Get user with email = " + email + ".")
+		context.JSON(200, gin.H{
+			"code":    1,
+			"message": user,
+		})
+	} else if user.Name == "" {
+		log.Println("User with email = " + email + " does not exist.")
+		context.JSON(200, gin.H{
+			"code":    1,
+			"message": "User with email = " + email + " does not exist.",
+		})
+	} else {
+		log.Println(err.Error())
+		log.Println("Action failed: Get user by email.")
+		context.JSON(200, gin.H{
+			"code":    1,
+			"message": "Get user by email failed.",
+		})
 	}
 }
 
@@ -197,6 +179,25 @@ func (c userController) Delete(context *gin.Context) {
 		context.JSON(200, gin.H{
 			"code":    1,
 			"message": "Delete user failed.",
+		})
+	}
+}
+
+func (c userController) DeleteAll(context *gin.Context) {
+
+	err_0 := c.repo.DeleteAll()
+	if err_0 == nil {
+		log.Println("Action success: Delete all users.")
+		context.JSON(200, gin.H{
+			"code":    1,
+			"message": "Delete all users successfully.",
+		})
+	} else {
+		log.Println(err_0.Error())
+		log.Println("Action failed: Delete all users.")
+		context.JSON(200, gin.H{
+			"code":    1,
+			"message": "Delete all users failed.",
 		})
 	}
 }
