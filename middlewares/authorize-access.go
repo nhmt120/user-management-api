@@ -14,7 +14,7 @@ func VerifyAccess(obj string, act string, enforcer *casbin.Enforcer) gin.Handler
 	utils.WriteLog("AppLog.txt")
 	return func(context *gin.Context) {
 		// Get current user/subject
-		sub, existed := context.Get("user")
+		sub, existed := context.Get("user_id")
 		// uid := user.(*model.User).UID
 
 		if !existed {

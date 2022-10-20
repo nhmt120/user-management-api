@@ -11,7 +11,7 @@ type userRepository struct {
 }
 
 type UserRepository interface {
-	CreateUser(models.User) error
+	CreateUser(models.User) (models.User, error)
 	UpdateUser(models.User) error
 	DeleteUser(int) error
 	DeleteUserByEmail(string) error
@@ -25,8 +25,8 @@ func NewUserRepository(db *gorm.DB) UserRepository {
 	return userRepository{DB: db}
 }
 
-func (r userRepository) CreateUser(user models.User) error {
-	return r.DB.Create(&user).Error
+func (r userRepository) CreateUser(user models.User) (models.User, error) {
+	return user, r.DB.Create(&user).Error
 }
 
 func (r userRepository) UpdateUser(user models.User) error {

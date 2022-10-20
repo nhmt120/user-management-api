@@ -8,11 +8,11 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
-func GenerateJWT(email string) (string, error) {
+func GenerateJWT(id uint) (string, error) {
 	claims := jwt.MapClaims{
 		"exp":        time.Now().Add(time.Hour * 3).Unix(),
 		"authorized": true,
-		"email":      email,
+		"user_id":    id,
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 	t, err := token.SignedString([]byte(os.Getenv("JWT_SECRET")))

@@ -53,7 +53,7 @@ func (c userController) Register(enforcer *casbin.Enforcer) gin.HandlerFunc {
 			} else {
 				user.Password = hash_password
 			}
-			err_0 := c.repo.CreateUser(user)
+			user, err_0 := c.repo.CreateUser(user)
 			if err_0 == nil {
 				log.Println("Action success: Register User.")
 				context.JSON(200, gin.H{

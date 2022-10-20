@@ -33,11 +33,11 @@ func SetRoutes(db *gorm.DB, enforcer *casbin.Enforcer) {
 	authorized.Use(middlewares.VerifyJWT())
 	{
 		//, middlewares.VerifyAccess("report", "write", enforcer)
-		authorized.GET("/get-all", userController.GetAll)
-		authorized.GET("/get-by-email", userController.GetByEmail)
-		authorized.POST("/update", userController.Update)
-		authorized.DELETE("/:id", userController.Delete)
-		authorized.DELETE("/delete-all", userController.DeleteAll)
+		authorized.GET("/get-all", middlewares.VerifyAccess("report", "read", enforcer), userController.GetAll)
+		authorized.GET("/get-by-email", middlewares.VerifyAccess("report", "read", enforcer), userController.GetByEmail)
+		authorized.POST("/update", middlewares.VerifyAccess("report", "read", enforcer), userController.Update)
+		authorized.DELETE("/:id", middlewares.VerifyAccess("report", "write", enforcer), userController.Delete)
+		authorized.DELETE("/delete-all", middlewares.VerifyAccess("report", "write", enforcer), userController.DeleteAll)
 	}
 
 	// r.Run() // listen and serve on 0.0.0.0:8080

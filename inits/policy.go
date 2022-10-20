@@ -9,7 +9,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func SetPolicies(db *gorm.DB) casbin.Enforcer {
+func SetPolicies(db *gorm.DB) *casbin.Enforcer {
 	utils.WriteLog("AppLog.txt")
 
 	// Initialize  casbin adapter
@@ -40,5 +40,5 @@ func SetPolicies(db *gorm.DB) casbin.Enforcer {
 	if hasPolicy := enforcer.HasPolicy("public", "report", "read"); !hasPolicy {
 		enforcer.AddPolicy("public", "report", "read")
 	}
-	return *enforcer
+	return enforcer
 }

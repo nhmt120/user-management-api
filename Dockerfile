@@ -6,5 +6,5 @@ RUN go mod download
 COPY . .
 # ENV PORT 8080
 RUN go build
-EXPOSE 5050
+EXPOSE 8080
 # CMD ["go run ."]

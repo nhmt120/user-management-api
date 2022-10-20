@@ -28,7 +28,7 @@ func main() {
 	db := utils.ConnectDatabase()
 	db.AutoMigrate(&models.User{})
 	enforcer := inits.SetPolicies(db)
-	inits.SetRoutes(db, &enforcer)
+	inits.SetRoutes(db, enforcer)
 }
 
 // var users = []models.User{

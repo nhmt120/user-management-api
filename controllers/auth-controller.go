@@ -78,7 +78,7 @@ func (c authController) Login(context *gin.Context) {
 	}
 	if is_valid := utils.ComparePassword(user.Password, password); is_valid {
 		log.Println("Action success: Login.")
-		jwt_token, err := utils.GenerateJWT(user.Email)
+		jwt_token, err := utils.GenerateJWT(user.ID)
 
 		if err != nil {
 			log.Println(err.Error())

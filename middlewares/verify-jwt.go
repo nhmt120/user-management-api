@@ -13,7 +13,6 @@ import (
 
 func VerifyJWT() gin.HandlerFunc {
 	utils.WriteLog("AppLog.txt")
-
 	return func(context *gin.Context) {
 		const BearerSchema string = "Bearer"
 		authHeader := context.GetHeader("Authorization")
@@ -41,7 +40,7 @@ func VerifyJWT() gin.HandlerFunc {
 				return
 			} else {
 				if token.Valid {
-					context.Set("email", claims["email"])
+					context.Set("user_id", claims["user_id"])
 					return
 				} else {
 					context.AbortWithStatus(http.StatusUnauthorized)
