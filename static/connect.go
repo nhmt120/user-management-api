@@ -17,7 +17,6 @@ var GIN_PORT = "8080"
 // 	DB_NAME = "user-management"
 // 	// dsn := "postgres://postgres:postgrespw@localhost:49153" // docker
 // 	// dsn := "postgres://postgres:123456@localhost:5439/user-management?sslmode=disable" // psql
-
 // }
 
 // func InitGin() {

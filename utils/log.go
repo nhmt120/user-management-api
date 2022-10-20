@@ -9,13 +9,13 @@ import (
 
 func WriteLog(log_file string) {
 	// var file *os.File
-	path := "Logs/" + log_file
+	path := "logs/" + log_file
 	if _, err := os.Stat(path); err == nil {
 		file, err0 := os.OpenFile(path, os.O_APPEND|os.O_WRONLY|os.O_CREATE, os.ModePerm)
 		fmt.Println(err0)
 		log.SetOutput(file)
 	} else if errors.Is(err, os.ErrNotExist) {
-		if err0 := os.Mkdir("Logs", os.ModePerm); err0 != nil {
+		if err0 := os.Mkdir("logs", os.ModePerm); err0 != nil {
 			fmt.Printf("Cannot create directory: %s.", path)
 			fmt.Println(err0)
 		}

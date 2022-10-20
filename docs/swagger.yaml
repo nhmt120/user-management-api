@@ -1,0 +1,180 @@
+basePath: /
+definitions:
+  models.User:
+    properties:
+      company:
+        type: string
+      createdAt:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+      status:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a sample server celler server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger User Management API
+  version: "1.0"
+paths:
+  /{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: User ID need to delete
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Delete user sucessfully.
+      security:
+      - BearerAuth: []
+      summary: Delete user from database
+      tags:
+      - User
+  /delete-all:
+    delete:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Delete all users sucessfully.
+      security:
+      - BearerAuth: []
+      summary: Delete all users from database
+      tags:
+      - User
+  /get-all:
+    get:
+      consumes:
+      - application/json
+      description: Get All User
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.User'
+            type: array
+      security:
+      - Bearer: []
+      - BearerAuth: []
+      summary: Get all user
+      tags:
+      - User
+  /get-by-email:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: User email need to get
+        in: query
+        name: email
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+      security:
+      - BearerAuth: []
+      summary: Get user info by email
+      tags:
+      - User
+  /login:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User email and password to log in.
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+      summary: User log in to system
+      tags:
+      - Auth
+  /register:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Info
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Register user sucessfully.
+      summary: Register a new account
+      tags:
+      - User
+  /update:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: User Info need to update
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Update user sucessfully.
+      security:
+      - BearerAuth: []
+      summary: Update user info
+      tags:
+      - User
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

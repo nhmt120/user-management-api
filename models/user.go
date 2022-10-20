@@ -7,8 +7,8 @@ type User struct {
 	Name      string    `json:"name"`
 	Email     string    `gorm:"not null;unique;" json:"email"`
 	Password  string    `gorm:"not null;" json:"password"`
-	Role      string    `gorm:"default:'Public'" json:"role"`
-	Status    string    `gorm:"default:'Active'" json:"status"`
+	Role      string    `gorm:"default:'public'" json:"role"`
+	Status    string    `gorm:"default:'active'" json:"status"`
 	Company   string    `gorm:"default:ITD" json:"company"`
 	CreatedAt time.Time ``
 	UpdatedAt time.Time ``

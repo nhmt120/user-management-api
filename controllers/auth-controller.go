@@ -12,7 +12,7 @@ import (
 )
 
 type AuthController interface {
-	Login(context *gin.Context)
+	Login(*gin.Context)
 }
 
 type authController struct {
@@ -25,6 +25,16 @@ func NewAuthController(db *gorm.DB) AuthController {
 	return authController{repo: repo}
 }
 
+// Login
+// @Schemas http
+// @Summary User log in to system
+// @Description
+// @Tags    Auth
+// @Accept  json
+// @Produce json
+// @Router  /login [post]
+// @Param   user body     models.User true "User email and password to log in."
+// @Success 200  {object} models.User
 func (c authController) Login(context *gin.Context) {
 	data, _ := context.GetRawData()
 	m := map[string]string{}
@@ -32,6 +42,20 @@ func (c authController) Login(context *gin.Context) {
 
 	email := m["email"]
 	password := m["password"]
+
+	// user0 := new(models.User)
+	// err := context.BindJSON(&user0)
+
+	// var email string
+	// var password string
+	// var json LoginModel
+	// err := context.Bind(&json)
+	// email := json.email
+	// password := json.password
+
+	// log.Println(email)
+	// log.Println(password)
+
 	if email == "" || password == "" {
 		log.Println("Action failed: Login, missing email or password information.")
 		context.JSON(http.StatusBadRequest, gin.H{
