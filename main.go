@@ -24,14 +24,10 @@ import (
 // @securityDefinitions.apikey BearerAuth
 // @in                         header
 // @name                       Authorization
+
 func main() {
 	db := utils.ConnectDatabase()
 	db.AutoMigrate(&models.User{})
 	enforcer := inits.SetPolicies(db)
 	inits.SetRoutes(db, enforcer)
 }
-
-// var users = []models.User{
-// 	{ID: 1, Name: "Vince", Email: "vince@gmail.com", Password: "1234", Role: "Admin", Status: "Active", CreatedAt: time.Now(), UpdatedAt: time.Now()},
-// 	{ID: 2, Name: "Marc", Email: "marc@gmail.com", Password: "4567", Role: "User", Status: "Active", CreatedAt: time.Now(), UpdatedAt: time.Now()},
-// }

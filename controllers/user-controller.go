@@ -32,7 +32,7 @@ func NewUserController(db *gorm.DB) UserController {
 	return userController{repo: repo}
 }
 
-// Register godoc
+// Register
 // @Summary Register a new account
 // @Schemas http
 // @Description
